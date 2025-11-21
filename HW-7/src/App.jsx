@@ -24,18 +24,17 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="characters" element={<CharacterList />} />
             <Route path="characters/:id" element={<CharacterDetails />} />
-            <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route
+              path="profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
           </Route>
-          <Route
-            path="profile"
-            element={
-              <ProtectedRoute>
-                <Profile />
-              </ProtectedRoute>
-            }
-          />
         </Routes>
       </AuthProvider>
     </BrowserRouter>
